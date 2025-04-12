@@ -1,0 +1,223 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7788,        215]
+NotebookOptionsPosition[      6755,        190]
+NotebookOutlinePosition[      7426,        211]
+CellTagsIndexPosition[      7383,        208]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"chemical", " ", "potentials"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"eqmuf", "[", 
+      RowBox[{"nfi_", ",", " ", "nf_", ",", " ", "ai_", ",", " ", "gamma_"}], 
+      "]"}], ":=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"nf", "-", "nfi"}], ")"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"ai", "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "-", "gamma"}], ")"}], "*", "nfi"}]}], ")"}]}], "==", 
+      " ", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"1", "-", "ai"}], ")"}], "*", " ", "gamma", "*", "nfi"}]}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"eqmud", "[", 
+      RowBox[{
+      "ndi_", ",", " ", "nd_", ",", " ", "nfi_", ",", " ", "ai_", ",", " ", 
+       "gamma_"}], "]"}], "  ", ":=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"nd", "-", "ndi"}], ")"}], "*", 
+       RowBox[{"(", 
+        RowBox[{"ai", "-", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"1", "-", "gamma"}], ")"}], "*", "nfi"}]}], ")"}]}], "==", 
+      RowBox[{"ndi", "*", 
+       RowBox[{"(", 
+        RowBox[{"1", "-", "ai"}], ")"}]}]}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.927170571863717*^9, 3.927170897048961*^9}, {
+   3.9271710567475405`*^9, 3.927171065761901*^9}, {3.927181215892337*^9, 
+   3.927181231571216*^9}, 3.9276044666738105`*^9, {3.927604539022072*^9, 
+   3.927604557342924*^9}, {3.9276046494745026`*^9, 3.9276047074604664`*^9}, {
+   3.9276047542841177`*^9, 3.9276051926111975`*^9}, {3.927605249394889*^9, 
+   3.927605252241614*^9}, {3.927605432343298*^9, 3.927605469239852*^9}, {
+   3.9276060564658318`*^9, 3.9276060658285494`*^9}, {3.9283960329964046`*^9, 
+   3.928396139481537*^9}, {3.9284006573573456`*^9, 3.928400685156647*^9}, {
+   3.928465694148614*^9, 3.9284657002229214`*^9}, {3.935468855764696*^9, 
+   3.935468927621505*^9}, {3.935469160972088*^9, 3.9354692329243016`*^9}, {
+   3.9354692989896812`*^9, 3.935469365054281*^9}, {3.9354694011348267`*^9, 
+   3.9354694023419046`*^9}, {3.9354694392531376`*^9, 3.935469480248989*^9}, {
+   3.935469520995227*^9, 3.935469554690096*^9}, {3.935475898863497*^9, 
+   3.935475920465967*^9}, {3.935476045790347*^9, 3.935476055290799*^9}, {
+   3.935476369804157*^9, 3.9354764699110584`*^9}, {3.9354785524745035`*^9, 
+   3.935478569941138*^9}, {3.9354793961249046`*^9, 3.935479566989069*^9}, {
+   3.9524970189286404`*^9, 3.9524971789279594`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"6dd82d5d-ff9a-401e-9eab-47a1f6def87a"],
+
+Cell["analytic solutions", "Text",
+ CellChangeTimes->{{3.935475868898594*^9, 3.935475872376305*^9}, {
+  3.935476475409197*^9, 
+  3.935476479812121*^9}},ExpressionUUID->"ea83803e-4e21-445b-a9f1-\
+e6dae94b3dd9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Solutions", " ", "=", " ", 
+   RowBox[{"Solve", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"eqmuf", "[", 
+        RowBox[{"nfi", ",", " ", "nf", ",", "  ", "ai", ",", " ", "gamma"}], 
+        "]"}], ",", 
+       RowBox[{"eqmud", "[", 
+        RowBox[{
+        "ndi", ",", " ", "nd", ",", " ", "nfi", ",", " ", "ai", ",", " ", 
+         "gamma"}], "]"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"nfi", ",", " ", "ndi"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"Solutions", "[", 
+   RowBox[{"[", 
+    RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Simplify", "[", 
+  RowBox[{"Solutions", "[", 
+   RowBox[{"[", 
+    RowBox[{"1", ",", "2"}], "]"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.935479580169144*^9, 3.9354796327968984`*^9}, {
+  3.9524971631458435`*^9, 3.952497277562584*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"427539c2-dda7-4853-9f02-a9490b5a951c"],
+
+Cell[BoxData[
+ RowBox[{"nfi", "\[Rule]", 
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"ai", "+", "gamma", "-", 
+     RowBox[{"ai", " ", "gamma"}], "+", "nf", "-", 
+     RowBox[{"gamma", " ", "nf"}], "-", 
+     SqrtBox[
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"ai", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", "gamma"}], ")"}]}], "+", 
+          RowBox[{"gamma", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"-", "1"}], "+", "nf"}], ")"}]}], "-", "nf"}], ")"}], 
+        "2"], "+", 
+       RowBox[{"4", " ", "ai", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "1"}], "+", "gamma"}], ")"}], " ", "nf"}]}]]}], 
+    RowBox[{"2", " ", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"-", "1"}], "+", "gamma"}], ")"}]}]]}]}]], "Output",
+ CellChangeTimes->{{3.9354796127983246`*^9, 3.9354796337969604`*^9}, {
+  3.952497250699459*^9, 3.952497278827774*^9}},
+ CellLabel->"Out[7]=",ExpressionUUID->"192e2526-7c7c-0b41-baa6-30b18e72afc5"],
+
+Cell[BoxData[
+ RowBox[{"ndi", "\[Rule]", 
+  FractionBox[
+   RowBox[{"nd", " ", 
+    RowBox[{"(", 
+     RowBox[{"ai", "-", "gamma", "-", 
+      RowBox[{"ai", " ", "gamma"}], "-", "nf", "+", 
+      RowBox[{"gamma", " ", "nf"}], "+", 
+      SqrtBox[
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"ai", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "gamma"}], ")"}]}], "+", 
+           RowBox[{"gamma", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"-", "1"}], "+", "nf"}], ")"}]}], "-", "nf"}], ")"}], 
+         "2"], "+", 
+        RowBox[{"4", " ", "ai", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"-", "1"}], "+", "gamma"}], ")"}], " ", "nf"}]}]]}], 
+     ")"}]}], 
+   RowBox[{"2", " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "gamma"}], ")"}], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", "1"}], "+", "nf"}], ")"}]}]]}]], "Output",
+ CellChangeTimes->{{3.9354796127983246`*^9, 3.9354796337969604`*^9}, {
+  3.952497250699459*^9, 3.95249727884639*^9}},
+ CellLabel->"Out[8]=",ExpressionUUID->"6f85582a-9da4-c84f-9ea7-4c4866af2be1"]
+}, Open  ]]
+},
+WindowSize->{949, 461},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+TaggingRules-><|"TryRealOnly" -> False|>,
+CellContext->Notebook,
+Magnification:>0.6 Inherited,
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->FrontEnd`FileName[{$RootDirectory, "C:", "Users", "lenovo", 
+   "AppData", "Roaming", "Mathematica", "SystemFiles", "FrontEnd", 
+   "StyleSheets"}, "GA_Style.nb", CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"32015774-a486-3e41-b8f8-515fef327d83"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2614, 59, 41, "Input",ExpressionUUID->"6dd82d5d-ff9a-401e-9eab-47a1f6def87a"],
+Cell[3175, 81, 209, 4, 21, "Text",ExpressionUUID->"ea83803e-4e21-445b-a9f1-e6dae94b3dd9"],
+Cell[CellGroupData[{
+Cell[3409, 89, 1023, 27, 41, "Input",ExpressionUUID->"427539c2-dda7-4853-9f02-a9490b5a951c"],
+Cell[4435, 118, 1082, 31, 39, "Output",ExpressionUUID->"192e2526-7c7c-0b41-baa6-30b18e72afc5"],
+Cell[5520, 151, 1219, 36, 41, "Output",ExpressionUUID->"6f85582a-9da4-c84f-9ea7-4c4866af2be1"]
+}, Open  ]]
+}
+]
+*)
+
